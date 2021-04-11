@@ -11,8 +11,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
-# Insert chromedriver location into the parenthesis
-browser = webdriver.Chrome('Chromedriver location')
+# Paste your chromdriver location into the variable below
+Chromedriverlocation = 
+browser = webdriver.Chrome(Chromedriverlocation)
+
 
 # Let's start with basic info to autofill question boxes
 # Email for all your Medical Accounts
@@ -21,8 +23,8 @@ email =
 password = 
 zipcode = 
 city = 
-Kaiser Username = 
-Kaiser Password = 
+KaiserUsername = 
+KaiserPassword = 
 
 # After inputing these info, you can just copy paste all the codes below, and you should be able to run it
 
@@ -39,9 +41,9 @@ try:
     )
     signin.click()
     login = browser.find_element_by_xpath('//*[@id="username"]')
-    login.send_keys(Kaiser Username)
+    login.send_keys(KaiserUsername)
     password = browser.find_element_by_xpath('//*[@id="password"]')
-    password.send_keys(Kaiser Password)
+    password.send_keys(KaiserPassword)
     password.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
@@ -138,7 +140,7 @@ except:
     
 #Change the inputs to your own info and location
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[4])
+browser.switch_to.window(browser.window_handles[6])
 browser.get('https://www.riteaid.com/pharmacy/covid-qualifier')
 try:
     jack1 = WebDriverWait(browser, 5).until(
@@ -166,7 +168,7 @@ except:
     
 #Walmart (Login Required) use your own zip code
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[5])
+browser.switch_to.window(browser.window_handles[7])
 browser.get('https://www.walmart.com/pharmacy/clinical-services/immunization/scheduled?imzType=covid&r=yes')
 try:
     terence1 = WebDriverWait(browser, 5).until(
@@ -182,7 +184,7 @@ except:
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[6])
+browser.switch_to.window(browser.window_handles[8])
 browser.get('https://www.mhealthappointments.com/covidappt')
 try:
     timmy1 = WebDriverWait(browser, 5).until(
@@ -197,7 +199,7 @@ except:
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[7])
+browser.switch_to.window(browser.window_handles[9])
 browser.get('https://www.cvs.com/immunizations/covid-19-vaccine')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -250,7 +252,7 @@ except:
 
 #This is just a vaccine finder that leads you to other websites
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[8])
+browser.switch_to.window(browser.window_handles[10])
 browser.get('https://vaccinefinder.org/search/')
 try:
     mummy1 = WebDriverWait(browser, 5).until(
@@ -265,7 +267,7 @@ except:
 
 #Walgreen (Login Required)
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[9])
+browser.switch_to.window(browser.window_handles[11])
 browser.get('https://www.walgreens.com/findcare/vaccination/covid-19?ban=covid_vaccine_landing_schedule')
 try:
     tasha0 = WebDriverWait(browser, 5).until(
@@ -323,7 +325,7 @@ except:
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[10])
+browser.switch_to.window(browser.window_handles[12])
 browser.get('https://vax.sccgov.org/home?mkt_tok=eyJpIjoiTmpBMk1qa3lNREF3TmpJMSIsInQiOiJ5ZHdLak85TEcybmFZSGdwS0RCSVJVYzdjTjlleWtrRUsyRzY3TUVSTW8xaE54MXZWcnZXdjA1emNVbTBmbWpOY2dYbzRKUXBMSDNYVFpORVhNXC9POUZDN2lFNVpqa3pFZDNrSkVXTXN3aXYyMXFBbzBIaVcxeHlLV1VHRXNGSWIifQ%3D%3D')
 try:
     input1 = WebDriverWait(browser, 5).until(
@@ -348,7 +350,7 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[11])
+browser.switch_to.window(browser.window_handles[13])
 browser.get('https://www.costco.com/covid-vaccine.html')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -359,7 +361,7 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[12])
+browser.switch_to.window(browser.window_handles[14])
 browser.get('https://www.kroger.com/rx/covid-eligibility')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -374,15 +376,15 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[13])
+browser.switch_to.window(browser.window_handles[15])
 browser.get('https://hooverrx.com/book-covid-19-vaccine-appointment/')
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[14])
+browser.switch_to.window(browser.window_handles[16])
 browser.get('https://lindarxpharmacy.godaddysites.com/covid-19-eng')
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[15])
+browser.switch_to.window(browser.window_handles[17])
 browser.get('https://savemartluckysched.rxtouch.com/smsched/program/covid19/patient/advisory')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -394,16 +396,16 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[16])
+browser.switch_to.window(browser.window_handles[18])
 browser.get('https://myhealth.stanfordhealthcare.org/#/embedded-schedule/vt=1575&dept=8015190001')
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[17])
+browser.switch_to.window(browser.window_handles[19])
 browser.get('https://forms.stanfordchildrens.org/service/covid-19-vaccination/covac.jsp?')
 
 #Healthmart (Login Required)
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[18])
+browser.switch_to.window(browser.window_handles[20])
 browser.get('https://scrcxp.pdhi.com/Portal/Member/d1e1f5d5-007f-4167-b8d1-1ea83cb3b215/?qitq=8f2d9b46-8e98-4f0e-90b7-b5ec6cb048a4&qitp=bba979f9-9593-43dd-b93c-0f99139502b4&qitts=1617715238&qitc=pdhi&qite=covid19vaccination&qitrt=Safetynet&qith=ce90a6f0c9b7d3d0a85c51231a92652d')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
