@@ -4,8 +4,6 @@
 # Lastly, look for your chromedriver file in downloads and copy its location (it should look like Users/name/Downloads/chromedriver) and insert the location into the first variable
 
 
-
-
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -16,14 +14,22 @@ import time
 # Insert chromedriver location into the parenthesis
 browser = webdriver.Chrome('Chromedriver location')
 
+# Let's start with basic info to autofill question boxes
+# Email for all your Medical Accounts
+email = 
+#Password for all your medical accounts
+password = 
+zipcode = 
+city = 
+
 #Stanford Healthcare
-browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[7])
 browser.get('https://stanfordhealthcare.org/discover/covid-19-resource-center/patient-care/safety-health-vaccine-planning.html')
 
 #Kaiser(Log In Required)
+Kaiser Username = "Type your Username"
+Kaiser Password = "Type your password"
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[8])
+browser.switch_to.window(browser.window_handles[1])
 browser.get('https://mydoctor.kaiserpermanente.org/covid-19/covid-19-vaccine')
 try:
     signin = WebDriverWait(browser, 5).until(
@@ -31,21 +37,21 @@ try:
     )
     signin.click()
     login = browser.find_element_by_xpath('//*[@id="username"]')
-    login.send_keys('insert kaiser username')
+    login.send_keys(Kaiser Username)
     password = browser.find_element_by_xpath('//*[@id="password"]')
-    password.send_keys('insert password')
+    password.send_keys(Kaiser Password)
     password.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
 
 #Sutterhealth (Call Required)
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[9])
+browser.switch_to.window(browser.window_handles[2])
 browser.get('https://www.sutterhealth.org/pamf/for-patients/health-alerts/covid-19-vaccine')
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[10])
+browser.switch_to.window(browser.window_handles[3])
 browser.get('https://myturn.ca.gov/')
 try:
     trump1 = WebDriverWait(browser, 10).until(
@@ -74,7 +80,7 @@ try:
     trumptrain.click()
     time.sleep(2)
     zipcode = browser.find_element_by_xpath('//*[@id="location-search-input"]')
-    zipcode.send_keys('95112')
+    zipcode.send_keys(zipcode)
     zipcode.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
@@ -82,7 +88,7 @@ except:
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[11])
+browser.switch_to.window(browser.window_handles[4])
 browser.get('https://healow.com/apps/practice/bay-area-community-health-2998?v=1')
 try:
     jack1 = WebDriverWait(browser, 5).until(
@@ -103,7 +109,7 @@ except:
 
     
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[12])
+browser.switch_to.window(browser.window_handles[5])
 browser.get('https://www.elcaminohealth.org/covid-19-resource-center/schedule/vaccine?utm_source=SCCPH&utm_medium=referral&utm_campaign=covid19')
 try:
     tom1 = WebDriverWait(browser, 5).until(
@@ -130,7 +136,7 @@ except:
     
 #Change the inputs to your own info and location
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[13])
+browser.switch_to.window(browser.window_handles[4])
 browser.get('https://www.riteaid.com/pharmacy/covid-qualifier')
 try:
     jack1 = WebDriverWait(browser, 5).until(
@@ -143,7 +149,7 @@ try:
     jack2.send_keys(Keys.ARROW_DOWN)
     jack2.send_keys(Keys.ENTER)
     jack3 = browser.find_element_by_xpath('//*[@id="city"]')
-    jack3.send_keys('San Jose')
+    jack3.send_keys(city)
     jack4 = browser.find_element_by_id('eligibility_state')
     jack4.click()
     jack4.send_keys('California')
@@ -158,23 +164,23 @@ except:
     
 #Walmart (Login Required) use your own zip code
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[14])
+browser.switch_to.window(browser.window_handles[5])
 browser.get('https://www.walmart.com/pharmacy/clinical-services/immunization/scheduled?imzType=covid&r=yes')
 try:
     terence1 = WebDriverWait(browser, 5).until(
         EC.presence_of_element_located((By.XPATH, "//*[@id='email']"))
     )
     terence1 = browser.find_element_by_xpath('//*[@id="email"]')
-    terence1.send_keys('insert your email here')
+    terence1.send_keys(email)
     terence2 = browser.find_element_by_xpath('//*[@id="password"]')
-    terence2.send_keys('insert password')
+    terence2.send_keys(password)
     terence2.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[15])
+browser.switch_to.window(browser.window_handles[6])
 browser.get('https://www.mhealthappointments.com/covidappt')
 try:
     timmy1 = WebDriverWait(browser, 5).until(
@@ -182,14 +188,14 @@ try:
     )
     timmy1.click()
     timmy2 = browser.find_element_by_xpath("//*[@id='covid_vaccine_search_input']")
-    timmy2.send_keys('95112')
+    timmy2.send_keys(zipcode)
     timmy2.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[16])
+browser.switch_to.window(browser.window_handles[7])
 browser.get('https://www.cvs.com/immunizations/covid-19-vaccine')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -234,7 +240,7 @@ try:
     next4.click()
     time.sleep(3)
     zip = browser.find_element_by_xpath('//*[@id="address"]')
-    zip.send_keys('95112')
+    zip.send_keys(zipcode)
     zip.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
@@ -242,13 +248,13 @@ except:
 
 #This is just a vaccine finder that leads you to other websites
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[17])
+browser.switch_to.window(browser.window_handles[8])
 browser.get('https://vaccinefinder.org/search/')
 try:
     mummy1 = WebDriverWait(browser, 5).until(
         EC.presence_of_element_located((By.XPATH, "//*[@id='zipCode']"))
     )
-    mummy1.send_keys("95112")
+    mummy1.send_keys(zipcode)
     mummy2 = browser.find_element_by_xpath('//*[@id="split-screen-content"]/form/div[2]/button')
     mummy2.click()
 except:
@@ -257,7 +263,7 @@ except:
 
 #Walgreen (Login Required)
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[18])
+browser.switch_to.window(browser.window_handles[9])
 browser.get('https://www.walgreens.com/findcare/vaccination/covid-19?ban=covid_vaccine_landing_schedule')
 try:
     tasha0 = WebDriverWait(browser, 5).until(
@@ -272,16 +278,16 @@ try:
     tasha1.send_keys(Keys.BACKSPACE)
     tasha1.send_keys(Keys.BACKSPACE)
     tasha1.send_keys(Keys.BACKSPACE)
-    tasha1.send_keys('95112')
+    tasha1.send_keys(zipcode)
     button = browser.find_element_by_xpath('//*[@id="wag-body-main-container"]/section/section/section/section/section[2]/div/span/button')
     button.click()
     time.sleep(3)
     button2 = browser.find_element_by_xpath('//*[@id="wag-body-main-container"]/section/section/section/section/section[4]/a/span')
     button2.click()
     email = browser.find_element_by_xpath('//*[@id="user_name"]')
-    email.send_keys(''insert your email here'')
+    email.send_keys(email)
     password = browser.find_element_by_xpath('//*[@id="user_password"]')
-    password.send_keys(''insert your password here')
+    password.send_keys(password)
     login = browser.find_element_by_xpath('//*[@id="submit_btn"]')
     login.click()
     time.sleep(5)
@@ -315,7 +321,7 @@ except:
 
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[19])
+browser.switch_to.window(browser.window_handles[10])
 browser.get('https://vax.sccgov.org/home?mkt_tok=eyJpIjoiTmpBMk1qa3lNREF3TmpJMSIsInQiOiJ5ZHdLak85TEcybmFZSGdwS0RCSVJVYzdjTjlleWtrRUsyRzY3TUVSTW8xaE54MXZWcnZXdjA1emNVbTBmbWpOY2dYbzRKUXBMSDNYVFpORVhNXC9POUZDN2lFNVpqa3pFZDNrSkVXTXN3aXYyMXFBbzBIaVcxeHlLV1VHRXNGSWIifQ%3D%3D')
 try:
     input1 = WebDriverWait(browser, 5).until(
@@ -340,7 +346,7 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[20])
+browser.switch_to.window(browser.window_handles[11])
 browser.get('https://www.costco.com/covid-vaccine.html')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -351,7 +357,7 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[27])
+browser.switch_to.window(browser.window_handles[12])
 browser.get('https://www.kroger.com/rx/covid-eligibility')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -366,15 +372,15 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[30])
+browser.switch_to.window(browser.window_handles[13])
 browser.get('https://hooverrx.com/book-covid-19-vaccine-appointment/')
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[31])
+browser.switch_to.window(browser.window_handles[14])
 browser.get('https://lindarxpharmacy.godaddysites.com/covid-19-eng')
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[32])
+browser.switch_to.window(browser.window_handles[15])
 browser.get('https://savemartluckysched.rxtouch.com/smsched/program/covid19/patient/advisory')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
@@ -386,16 +392,16 @@ except:
     time.sleep(1)
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[33])
+browser.switch_to.window(browser.window_handles[16])
 browser.get('https://myhealth.stanfordhealthcare.org/#/embedded-schedule/vt=1575&dept=8015190001')
 
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[34])
+browser.switch_to.window(browser.window_handles[17])
 browser.get('https://forms.stanfordchildrens.org/service/covid-19-vaccination/covac.jsp?')
 
 #Healthmart (Login Required)
 browser.execute_script("window.open('');")
-browser.switch_to.window(browser.window_handles[35])
+browser.switch_to.window(browser.window_handles[18])
 browser.get('https://scrcxp.pdhi.com/Portal/Member/d1e1f5d5-007f-4167-b8d1-1ea83cb3b215/?qitq=8f2d9b46-8e98-4f0e-90b7-b5ec6cb048a4&qitp=bba979f9-9593-43dd-b93c-0f99139502b4&qitts=1617715238&qitc=pdhi&qite=covid19vaccination&qitrt=Safetynet&qith=ce90a6f0c9b7d3d0a85c51231a92652d')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
