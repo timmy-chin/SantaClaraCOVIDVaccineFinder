@@ -1,4 +1,4 @@
-# Before you can use these codes, install selenium into your laptop by using python. In your terminal, type "python3 pip -m install selenium". For windows, type "python pip install selenium". If it says installation successful, great! You are good to go
+# Before you can use these codes, install selenium into your laptop by using python. In your terminal, type "python3 -m pip nstall selenium". For windows, type "python pip install selenium". If it says installation successful, great! You are good to go
 # If pip install did not work, try to troubleshoot on google, there are many resources out there that can help you with this issue
 # Next, you have to install chromedriver on your laptop so that you can allow selenium to control chrome. Go to https://chromedriver.chromium.org/downloads and download your version of chrome
 # Lastly, look for your chromedriver file in downloads and copy its location (it should look like Users/name/Downloads/chromedriver) and insert the location into the first variable
