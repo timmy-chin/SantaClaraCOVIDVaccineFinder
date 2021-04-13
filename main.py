@@ -12,32 +12,34 @@ from selenium.webdriver.support import expected_conditions as EC
 import time
 
 # Paste your chromdriver location into the variable below
-Chromedriverlocation = 
-browser = webdriver.Chrome(Chromedriverlocation)
+Chromedriverlocation = input("Chromedriver file location:")
 
 
 # Let's start with basic info to autofill question boxes
 # Email for all your Medical Accounts
-email = 
-#Password for all your medical accounts
-password = 
-zipcode = 
-city = 
-KaiserUsername = 
-KaiserPassword = 
+email = input('Email for login:')
+# Password for all your medical accounts
+password = input('Password for login:')
+zipcode = input('Zip Code:')
+city = input('City:')
+KaiserUsername = input('KaiserUsernmae (if you have kaiser):')
+KaiserPassword = input('KaiserPassword:')
 
 # After inputing these info, you can just copy paste all the codes below, and you should be able to run it
 
-#Stanford Healthcare
-browser.get('https://stanfordhealthcare.org/discover/covid-19-resource-center/patient-care/safety-health-vaccine-planning.html')
+# Stanford Healthcare
+browser = webdriver.Chrome(Chromedriverlocation)
+browser.get(
+    'https://stanfordhealthcare.org/discover/covid-19-resource-center/patient-care/safety-health-vaccine-planning.html')
 
-#Kaiser(Log In Required)
+# Kaiser(Log In Required)
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[1])
 browser.get('https://mydoctor.kaiserpermanente.org/covid-19/covid-19-vaccine')
 try:
     signin = WebDriverWait(browser, 5).until(
-        EC.presence_of_element_located((By.XPATH, "/html/body/app-package/div/app-content/app-pm-body-content-renderer/div[3]/app-grid/div/div/div/app-cms-mdo-vaccine-booking-renderer/app-content-holder[2]/app-mdo-vertical-content-card-renderer/div/div/div[2]/div/button"))
+        EC.presence_of_element_located((By.XPATH,
+                                        "/html/body/app-package/div/app-content/app-pm-body-content-renderer/div[3]/app-grid/div/div/div/app-cms-mdo-vaccine-booking-renderer/app-content-holder[2]/app-mdo-vertical-content-card-renderer/div/div/div[2]/div/button"))
     )
     signin.click()
     login = browser.find_element_by_xpath('//*[@id="username"]')
@@ -48,11 +50,10 @@ try:
 except:
     time.sleep(1)
 
-#Sutterhealth (Call Required)
+# Sutterhealth (Call Required)
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[2])
 browser.get('https://www.sutterhealth.org/pamf/for-patients/health-alerts/covid-19-vaccine')
-
 
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[3])
@@ -88,8 +89,6 @@ try:
     zipcode.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
-    
-
 
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[4])
@@ -109,12 +108,11 @@ try:
     jack4.click()
 except:
     time.sleep(1)
-    
 
-    
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[5])
-browser.get('https://www.elcaminohealth.org/covid-19-resource-center/schedule/vaccine?utm_source=SCCPH&utm_medium=referral&utm_campaign=covid19')
+browser.get(
+    'https://www.elcaminohealth.org/covid-19-resource-center/schedule/vaccine?utm_source=SCCPH&utm_medium=referral&utm_campaign=covid19')
 try:
     tom1 = WebDriverWait(browser, 5).until(
         EC.presence_of_element_located((By.XPATH, "//*[@id='edit-a']/div[2]/label"))
@@ -131,14 +129,14 @@ try:
     tom5.click()
     tom4 = browser.find_element_by_xpath('//*[@id="edit-r"]/div[1]/label')
     tom4.click()
-    tom6 = browser.find_element_by_xpath('//*[@id="webform-submission-covid-19-vaccination-elig-v11-node-165131-add-form"]/div[6]/label')
+    tom6 = browser.find_element_by_xpath(
+        '//*[@id="webform-submission-covid-19-vaccination-elig-v11-node-165131-add-form"]/div[6]/label')
     tom6.click()
 
 except:
     time.sleep(1)
 
-    
-#Change the inputs to your own info and location
+# Change the inputs to your own info and location
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[6])
 browser.get('https://www.riteaid.com/pharmacy/covid-qualifier')
@@ -165,8 +163,7 @@ try:
 except:
     time.sleep(1)
 
-    
-#Walmart (Login Required) use your own zip code
+# Walmart (Login Required) use your own zip code
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[7])
 browser.get('https://www.walmart.com/pharmacy/clinical-services/immunization/scheduled?imzType=covid&r=yes')
@@ -182,7 +179,6 @@ try:
 except:
     time.sleep(1)
 
-
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[8])
 browser.get('https://www.mhealthappointments.com/covidappt')
@@ -196,7 +192,6 @@ try:
     timmy2.send_keys(Keys.ENTER)
 except:
     time.sleep(1)
-
 
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[9])
@@ -249,8 +244,7 @@ try:
 except:
     time.sleep(1)
 
-
-#This is just a vaccine finder that leads you to other websites
+# This is just a vaccine finder that leads you to other websites
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[10])
 browser.get('https://vaccinefinder.org/search/')
@@ -264,8 +258,7 @@ try:
 except:
     time.sleep(1)
 
-
-#Walgreen (Login Required)
+# Walgreen (Login Required)
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[11])
 browser.get('https://www.walgreens.com/findcare/vaccination/covid-19?ban=covid_vaccine_landing_schedule')
@@ -283,10 +276,12 @@ try:
     tasha1.send_keys(Keys.BACKSPACE)
     tasha1.send_keys(Keys.BACKSPACE)
     tasha1.send_keys(zipcode)
-    button = browser.find_element_by_xpath('//*[@id="wag-body-main-container"]/section/section/section/section/section[2]/div/span/button')
+    button = browser.find_element_by_xpath(
+        '//*[@id="wag-body-main-container"]/section/section/section/section/section[2]/div/span/button')
     button.click()
     time.sleep(3)
-    button2 = browser.find_element_by_xpath('//*[@id="wag-body-main-container"]/section/section/section/section/section[4]/a/span')
+    button2 = browser.find_element_by_xpath(
+        '//*[@id="wag-body-main-container"]/section/section/section/section/section[4]/a/span')
     button2.click()
     email = browser.find_element_by_xpath('//*[@id="user_name"]')
     email.send_keys(email)
@@ -323,24 +318,27 @@ try:
 except:
     time.sleep(1)
 
-
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[12])
-browser.get('https://vax.sccgov.org/home?mkt_tok=eyJpIjoiTmpBMk1qa3lNREF3TmpJMSIsInQiOiJ5ZHdLak85TEcybmFZSGdwS0RCSVJVYzdjTjlleWtrRUsyRzY3TUVSTW8xaE54MXZWcnZXdjA1emNVbTBmbWpOY2dYbzRKUXBMSDNYVFpORVhNXC9POUZDN2lFNVpqa3pFZDNrSkVXTXN3aXYyMXFBbzBIaVcxeHlLV1VHRXNGSWIifQ%3D%3D')
+browser.get(
+    'https://vax.sccgov.org/home?mkt_tok=eyJpIjoiTmpBMk1qa3lNREF3TmpJMSIsInQiOiJ5ZHdLak85TEcybmFZSGdwS0RCSVJVYzdjTjlleWtrRUsyRzY3TUVSTW8xaE54MXZWcnZXdjA1emNVbTBmbWpOY2dYbzRKUXBMSDNYVFpORVhNXC9POUZDN2lFNVpqa3pFZDNrSkVXTXN3aXYyMXFBbzBIaVcxeHlLV1VHRXNGSWIifQ%3D%3D')
 try:
     input1 = WebDriverWait(browser, 5).until(
         EC.presence_of_element_located((By.XPATH, "//*[@id='edit-65-up-scc-resident-no']"))
     )
     input1.click()
-    input2 = browser.find_element_by_xpath('//*[@id="edit-can-you-attest-under-penalty-of-perjury-that-you-work-in-one-of-yes"]')
+    input2 = browser.find_element_by_xpath(
+        '//*[@id="edit-can-you-attest-under-penalty-of-perjury-that-you-work-in-one-of-yes"]')
     input2.click()
     input3 = browser.find_element_by_xpath('//*[@id="edit-how-old-are-you-occupation-18"]')
     input3.click()
-    input4 = browser.find_element_by_xpath('//*[@id="edit-have-you-had-another-vaccine-e-g-influenza-in-the-last-14-days-no"]')
+    input4 = browser.find_element_by_xpath(
+        '//*[@id="edit-have-you-had-another-vaccine-e-g-influenza-in-the-last-14-days-no"]')
     input4.click()
     input5 = browser.find_element_by_xpath('//*[@id="edit-are-you-currently-ill-with-covid-19-no"]')
     input5.click()
-    input6 = browser.find_element_by_xpath('//*[@id="edit-do-you-have-a-known-severe-allergy-to-ul-li-polysorbate-li-li-or-no"]')
+    input6 = browser.find_element_by_xpath(
+        '//*[@id="edit-do-you-have-a-known-severe-allergy-to-ul-li-polysorbate-li-li-or-no"]')
     input6.click()
     input7 = browser.find_element_by_xpath('//*[@id="edit-which-dose-number-first-dose"]')
     input7.click()
@@ -370,7 +368,8 @@ try:
     tommy1.click()
     tommy2 = browser.find_element_by_link_text('No')
     tommy2.click()
-    tommy3 = browser.find_element_by_xpath('//*[@id="content"]/div/section[2]/div/div/div/div/div/div/div/div/div/div/ul/li[5]/div/div[2]/div[2]/div/div/div/select/option[6]')
+    tommy3 = browser.find_element_by_xpath(
+        '//*[@id="content"]/div/section[2]/div/div/div/div/div/div/div/div/div/div/ul/li[5]/div/div[2]/div[2]/div/div/div/select/option[6]')
     tommy3.click()
 except:
     time.sleep(1)
@@ -403,10 +402,11 @@ browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[19])
 browser.get('https://forms.stanfordchildrens.org/service/covid-19-vaccination/covac.jsp?')
 
-#Healthmart (Login Required)
+# Healthmart (Login Required)
 browser.execute_script("window.open('');")
 browser.switch_to.window(browser.window_handles[20])
-browser.get('https://scrcxp.pdhi.com/Portal/Member/d1e1f5d5-007f-4167-b8d1-1ea83cb3b215/?qitq=8f2d9b46-8e98-4f0e-90b7-b5ec6cb048a4&qitp=bba979f9-9593-43dd-b93c-0f99139502b4&qitts=1617715238&qitc=pdhi&qite=covid19vaccination&qitrt=Safetynet&qith=ce90a6f0c9b7d3d0a85c51231a92652d')
+browser.get(
+    'https://scrcxp.pdhi.com/Portal/Member/d1e1f5d5-007f-4167-b8d1-1ea83cb3b215/?qitq=8f2d9b46-8e98-4f0e-90b7-b5ec6cb048a4&qitp=bba979f9-9593-43dd-b93c-0f99139502b4&qitts=1617715238&qitc=pdhi&qite=covid19vaccination&qitrt=Safetynet&qith=ce90a6f0c9b7d3d0a85c51231a92652d')
 try:
     tommy1 = WebDriverWait(browser, 5).until(
         EC.presence_of_element_located((By.XPATH, "//*[@id='Username']"))
@@ -434,7 +434,8 @@ try:
     next = browser.find_element_by_xpath('//*[@id="covid-vaccination-carousel"]/div/div[2]/form/div/button[2]')
     next.click()
     time.sleep(3)
-    button7 = browser.find_element_by_xpath('//*[@id="criteria-Other adult 16 years of age and older (check with your county)"]')
+    button7 = browser.find_element_by_xpath(
+        '//*[@id="criteria-Other adult 16 years of age and older (check with your county)"]')
     button7.click()
     next2 = browser.find_element_by_xpath('//*[@id="covid-vaccination-carousel"]/div/div[4]/form/div/button[2]')
     next2.click()
